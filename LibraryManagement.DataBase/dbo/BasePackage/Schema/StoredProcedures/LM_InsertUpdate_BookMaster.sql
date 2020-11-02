@@ -11,7 +11,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @BookId INT
-	SET @BookId = (SELECT TOP 1 BookId FROM LM_BookMaster WHERE BookName = @BookName AND IsActive = 1)
+	SET @BookId = (SELECT TOP 1 BookId FROM LM_BookMaster WHERE BookName = @BookName)
 
 	IF(@BookId = '' OR @BookId = 0 OR @BookId IS NULL)
 	BEGIN

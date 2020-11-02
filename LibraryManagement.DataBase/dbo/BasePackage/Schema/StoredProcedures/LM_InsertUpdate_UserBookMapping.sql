@@ -22,7 +22,7 @@ BEGIN
 
 	SET @UserBookMappingId = (SELECT UserBookMappingId FROM [dbo].[LM_UserBookMapping] WHERE UserId = @UserId AND BookId = @BookId)
 
-	IF(@UserBookMappingId IS NULL)
+	IF(@UserBookMappingId IS NULL OR @UserBookMappingId = 0 OR @UserBookMappingId = '')
 	BEGIN
 		INSERT INTO [dbo].[LM_UserBookMapping]
 		(

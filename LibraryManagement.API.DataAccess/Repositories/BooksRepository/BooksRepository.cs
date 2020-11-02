@@ -114,7 +114,7 @@ namespace LibraryManagement.API.DataAccess.Repositories.BooksRepository
                 new SqlParameter(Constants.Parameters.BOOK_NAME, userBook.BookName),
                 new SqlParameter(Constants.Parameters.IS_FAVORITE, userBook.IsFavorite),
                 new SqlParameter(Constants.Parameters.IS_READ, userBook.IsRead),
-                new SqlParameter(Constants.Parameters.BOOK_REVIEW, userBook.BookReview)
+                new SqlParameter(Constants.Parameters.BOOK_REVIEW, (object)userBook.BookReview ?? DBNull.Value)
             };
 
             await base.ExecuteStoredProcedure(Constants.Procedures.LM_INSERT_UPDATE_USER_BOOK_MAPPING, parameters);

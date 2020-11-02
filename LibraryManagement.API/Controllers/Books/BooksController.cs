@@ -23,11 +23,11 @@ namespace LibraryManagement.API.Controllers.Books
         /// This action method is used for to retrieve the list of books
         /// </summary>
         /// <returns>Returns Books List</returns>
-        [HttpGet("BooksList")]
+        [HttpGet("BooksList/{bookName}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public async Task<ActionResult> Get(string bookName = null)
+        public async Task<ActionResult> Get(string bookName)
         {
             try
             {
